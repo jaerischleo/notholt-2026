@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>notholt lighting design – Lichtplanung Hamburg</title>
+<meta name="description" content="Das Lichtplanungsbüro von Thomas Notholt in Hamburg, entwickelt innovative und individuelle Lichtkonzepte.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23000%22/%3E%3Ctext x=%2232%22 y=%2252%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22%23FFD6A0%22 font-family=%22Helvetica,Arial%22%3E*%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="notholt lighting design">
+<meta property="og:description" content="Das Lichtplanungsbüro von Thomas Notholt in Hamburg, entwickelt innovative und individuelle Lichtkonzepte.">
+<meta property="og:image" content="https://www.notholt.de/fileadmin/Wettbewerbe/darc_award_2021_Donner___Reuschel/Foto_29.07.20__23_30_46.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   NOTHOLT LIGHTING DESIGN · Entwurf
+   Dunkel wie ein Raum vor dem Einschalten.
+   Ein Akzent: --light = warmweißes Licht, 2700 K.
+   Gotham 300 / 400 / 500.
+   ========================================================= */
+:root{
+  --bg:#000;--fg:#fff;
+  --dim:rgba(255,255,255,.38);
+  --mid:rgba(255,255,255,.62);
+  --line:rgba(255,255,255,.14);
+  --light:#FFD6A0;
+  --font:"Gotham","Gotham SSm","Montserrat",Helvetica,Arial,sans-serif;
+  --m:clamp(20px,4vw,80px);
+  --g:clamp(12px,1.4vw,28px);
+  --u:clamp(32px,4.2vw,84px);
+  --t-xxl:clamp(34px,5.2vw,104px);
+  --t-xl:clamp(26px,2.8vw,54px);
+  --t-l:clamp(19px,1.5vw,28px);
+  --t-b:clamp(15px,.98vw,17px);
+  --t-s:clamp(12px,.76vw,14px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:400 var(--t-b)/1.62 var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1.5px solid var(--light);outline-offset:4px}
+::selection{background:var(--light);color:#000}
+.row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-inline:var(--m)}
+.s1{height:var(--u)}.s2{height:calc(var(--u)*2)}.s3{height:calc(var(--u)*3)}.s4{height:calc(var(--u)*4)}
+.k{font-size:var(--t-s);color:var(--dim)}
+
+
+/* ---------- Ladebild: Logo wird beleuchtet ---------- */
+.boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;cursor:pointer;transition:opacity 1.6s cubic-bezier(.4,0,.2,1),visibility 1.6s}
+.boot.out{opacity:0;visibility:hidden}
+.boot .lw{font:500 clamp(28px,4.4vw,84px)/1.3 var(--font);padding:0 .05em;letter-spacing:-.005em;white-space:nowrap;
+  color:transparent;background:radial-gradient(ellipse var(--sr,26%) 180% at var(--sx,-30%) 50%,rgba(255,255,255,.92) 0,rgba(255,255,255,.55) 35%,rgba(255,255,255,var(--base,.05)) 100%);
+  -webkit-background-clip:text;background-clip:text}
+.boot .lw span{font-weight:300}
+.boot .lw i{font-style:normal;color:rgba(255,214,160,var(--st,.08));text-shadow:0 0 calc(var(--st,0)*28px) rgba(255,214,160,calc(var(--st,0)*.55));-webkit-text-fill-color:currentColor}
+.boot .sk{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 28px);font-size:var(--t-s);color:rgba(255,255,255,.18);opacity:0;animation:skf 1.5s 2s ease forwards}@keyframes skf{to{opacity:1}}
+@media (max-width:760px){.boot .lw{font-size:8vw}}
+
+/* ---------- Kopf ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 20px) var(--m) 18px;font-size:var(--t-s);transition:background .4s}
+.top.solid{background:rgba(0,0,0,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.wm{text-decoration:none;font-weight:500;letter-spacing:-.005em;font-size:clamp(17px,1.35vw,24px);line-height:1}
+.wm i{font-style:normal;color:var(--light)}
+.wm span{font-weight:300;color:var(--mid)}
+.top nav{display:flex;gap:clamp(16px,2.2vw,40px)}
+.top nav a{text-decoration:none;color:var(--mid);transition:color .3s}
+.top nav a:hover,.top nav a.on{color:var(--fg)}
+.mb{display:none;font-size:var(--t-s)}
+@media (max-width:760px){
+  .mb{display:block;color:var(--fg)}
+  .top nav{position:fixed;inset:0;z-index:-1;flex-direction:column;justify-content:center;gap:18px;padding:0 var(--m);background:#000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+  .top nav a{font:300 clamp(30px,9vw,44px)/1.2 var(--font);color:var(--fg)}
+  .top.open nav{opacity:1;visibility:visible}
+  .top.open{background:#000}
+}
+
+/* ---------- Hero: bewegtes Raster ---------- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:#000}
+.cols{position:absolute;inset:0;display:flex;gap:6px;padding:0 6px;transform:rotate(-0deg)}
+.col{flex:1 1 0;display:flex;flex-direction:column;gap:6px;will-change:transform}
+.col button{display:block;padding:0;cursor:pointer}
+.col img{width:100%;aspect-ratio:2/1;object-fit:cover;filter:brightness(var(--b,.4)) saturate(var(--s,.6))}
+.hero::before{content:"";position:absolute;inset:0 0 auto;height:140px;z-index:1;background:linear-gradient(#000,transparent);pointer-events:none}
+.hero .veil{position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(to top,#000 8%,rgba(0,0,0,.75) 45%,transparent);pointer-events:none}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:end;gap:var(--g);padding:0 var(--m) calc(var(--u)*.8);pointer-events:none}
+.hero h1{font:300 var(--t-xl)/1.18 var(--font);letter-spacing:-.012em;max-width:22em}
+.hero .hint{font-size:var(--t-s);color:var(--dim);white-space:nowrap;text-align:right}
+.hero .hint b{display:block;font-weight:400;color:var(--fg)}
+.tag{position:fixed;z-index:30;left:0;top:0;pointer-events:none;font-size:var(--t-s);color:#000;background:var(--light);padding:6px 10px;white-space:nowrap;opacity:0;transition:opacity .2s}
+.tag.on{opacity:1}
+@media (max-width:760px){.cols{gap:4px;padding:0 4px}.col{gap:4px}.hero .hint{display:none}}
+
+/* ---------- Award ---------- */
+.aw .badge{grid-column:1/4;font-size:var(--t-s);color:var(--light);letter-spacing:.02em}
+.aw h2{grid-column:4/12;font:300 var(--t-xxl)/1.02 var(--font);letter-spacing:-.025em}
+.aw .txt{grid-column:4/9;margin-top:calc(var(--u)*.8);color:var(--mid)}
+.aw .txt p+p{margin-top:1em}
+.aw .txt strong{display:block;color:var(--fg);font-weight:500;margin-top:1.6em}
+@media (max-width:820px){.aw .badge,.aw h2,.aw .txt{grid-column:1/13}.aw h2{margin-top:12px}}
+
+.lit img{filter:brightness(var(--b,1))}
+.gal{align-items:start}
+.gal figure:nth-child(1){grid-column:1/13}
+.gal figure:nth-child(2){grid-column:1/7;margin-top:var(--g)}
+.gal figure:nth-child(3){grid-column:7/13;margin-top:calc(var(--g) + var(--u)*1.4)}
+.gal figure:nth-child(4){grid-column:3/11;margin-top:var(--u)}
+figcaption{margin-top:10px;font-size:var(--t-s);color:var(--dim)}
+@media (max-width:820px){.gal figure:nth-child(n){grid-column:1/13;margin-top:var(--g)}}
+
+/* ---------- Projekte: Index ---------- */
+.pj .intro{grid-column:1/6;color:var(--mid)}
+.pj .h{grid-column:1/13;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:calc(var(--u)*.6)}
+.pj .h h2{font:300 var(--t-xl)/1.1 var(--font)}
+.flt{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--t-s)}
+.flt button{color:var(--dim);transition:color .3s}
+.flt button[aria-pressed="true"],.flt button:hover{color:var(--fg)}
+.idx{grid-column:1/13;list-style:none;border-top:1px solid var(--line)}
+.idx li{border-bottom:1px solid var(--line)}
+.idx button{width:100%;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:baseline;padding:clamp(14px,1.4vw,24px) 0;text-align:left}
+.idx .no{grid-column:1/2;font-size:var(--t-s);color:var(--dim)}
+.idx .nm{grid-column:2/9;font:300 var(--t-xl)/1.1 var(--font);letter-spacing:-.012em;color:var(--fg);transition:color .5s}
+.idx .ct{grid-column:9/11;font-size:var(--t-s);color:var(--dim)}
+.idx .or{grid-column:11/13;font-size:var(--t-s);color:var(--dim);text-align:right}
+.idx.hov .nm{color:rgba(255,255,255,.22)}
+.idx.hov li.on .nm{color:var(--fg)}
+.idx li.off{display:none}
+.idx .th{display:none}
+.pv{position:fixed;z-index:20;right:var(--m);bottom:calc(var(--u)*.8);width:min(38vw,620px);pointer-events:none}
+.pv img{width:100%;filter:brightness(0);opacity:0;transition:filter .9s cubic-bezier(.3,.6,.2,1),opacity .4s}
+.pv.on img{filter:brightness(1);opacity:1}
+@media (hover:none),(max-width:820px){
+  .pv{display:none}
+  .idx button{grid-template-columns:1fr auto;row-gap:6px}
+  .idx .no{display:none}.idx .nm{grid-column:1/3}.idx .ct{grid-column:1}.idx .or{grid-column:2}
+  .idx .th{display:block;grid-column:1/3;margin-top:10px}
+}
+
+/* ---------- Projekt-Ansicht ---------- */
+.ov{position:fixed;inset:0;z-index:60;background:#000;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overscroll-behavior:contain}
+.ov.on{opacity:1;visibility:visible}
+.ov .bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:20px var(--m);background:linear-gradient(#000 60%,rgba(0,0,0,0));font-size:var(--t-s)}
+.ov .bar .nx{display:flex;gap:22px;color:var(--mid)}
+.ov .bar button:hover{color:var(--fg)}
+.ov .hd{padding:calc(var(--u)*1.2) var(--m) calc(var(--u)*.8)}
+.ov h3{font:300 var(--t-xxl)/1.02 var(--font);letter-spacing:-.025em}
+.ov .meta{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);margin-top:calc(var(--u)*.7)}
+.ov .meta .a{grid-column:1/4;font-size:var(--t-s);color:var(--dim)}
+.ov .meta .b{grid-column:4/10;color:var(--mid)}
+.ov .imgs{display:grid;gap:var(--g);padding-inline:var(--m);justify-items:center}
+.ov .imgs img{width:100%;max-width:var(--w)}
+.ov .cr{padding:var(--u) var(--m);font-size:var(--t-s);color:var(--dim)}
+@media (max-width:820px){.ov .meta .a,.ov .meta .b{grid-column:1/13}.ov .meta .b{margin-top:8px}}
+
+/* ---------- Lichtwerkstatt ---------- */
+.ws{align-items:center}
+.ws .tx{grid-column:1/5}
+.ws .tx h2{font:300 var(--t-xl)/1.1 var(--font);margin-bottom:calc(var(--u)*.5)}
+.ws .tx p{color:var(--mid)}
+.ws .ctl{margin-top:calc(var(--u)*.8);display:grid;gap:26px}
+.ws label{display:flex;justify-content:space-between;font-size:var(--t-s);color:var(--dim);margin-bottom:10px}
+.ws label output{color:var(--fg)}
+.ws input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent}
+.ws input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--line)}
+.ws input[type=range]::-moz-range-track{height:1px;background:var(--line)}
+.ws input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;margin-top:-7.5px;border-radius:50%;background:var(--light);box-shadow:0 0 14px 3px rgba(255,214,160,.45)}
+.ws input[type=range]::-moz-range-thumb{width:16px;height:16px;border:0;border-radius:50%;background:var(--light);box-shadow:0 0 14px 3px rgba(255,214,160,.45)}
+#cct::-webkit-slider-runnable-track{background:linear-gradient(90deg,#ff9a3c,#ffd6a0,#fff,#cfe0ff)}
+#cct::-moz-range-track{background:linear-gradient(90deg,#ff9a3c,#ffd6a0,#fff,#cfe0ff)}
+.ws .sc{grid-column:6/13;position:relative;overflow:hidden}
+.ws .sc img{width:100%;filter:brightness(var(--dimv,1)) saturate(var(--satv,1))}
+.ws .sc .tint{position:absolute;inset:0;mix-blend-mode:soft-light;background:var(--tint,transparent);opacity:var(--tinto,0);pointer-events:none}
+@media (max-width:820px){.ws .tx,.ws .sc{grid-column:1/13}.ws .sc{margin-top:var(--u);order:-1}}
+
+/* ---------- Über uns ---------- */
+.ab .lead{grid-column:1/10;font:300 var(--t-l)/1.5 var(--font)}
+.ab .th{grid-column:1/13;margin-top:calc(var(--u)*1.2);border-top:1px solid var(--line)}
+.ab details{border-bottom:1px solid var(--line)}
+.ab summary{list-style:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:20px 0;cursor:pointer}
+.ab summary::-webkit-details-marker{display:none}
+.ab summary span{grid-column:1/9;font:300 var(--t-l)/1.2 var(--font);transition:color .3s}
+.ab summary i{grid-column:12/13;justify-self:end;font-style:normal;color:var(--dim);font-size:var(--t-s);align-self:center}
+.ab details[open] summary i::before{content:"schließen"}
+.ab details:not([open]) summary i::before{content:"lesen"}
+.ab details .c{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding-bottom:28px}
+.ab details .c div{grid-column:5/11;color:var(--mid);font-size:var(--t-s);line-height:1.75}
+.ab details .c div p+p{margin-top:.9em}
+.ab details .c figure{grid-column:1/4}
+@media (max-width:820px){.ab .lead{grid-column:1/13}.ab details .c div{grid-column:1/13}.ab details .c figure{grid-column:1/13;margin-bottom:var(--g)}}
+
+/* ---------- Kontakt ---------- */
+.ct2 .big{grid-column:1/13;font:300 var(--t-xxl)/1 var(--font);letter-spacing:-.025em;text-decoration:none;display:inline-block;transition:color .4s,text-shadow .6s}
+.ct2 .big:hover{color:var(--light);text-shadow:0 0 40px rgba(255,214,160,.35)}
+.ct2 .col{grid-column:span 3;margin-top:calc(var(--u)*1.2);font-size:var(--t-s);line-height:1.8;color:var(--mid)}
+.ct2 .col h4{font-weight:500;color:var(--fg);font-size:var(--t-s);margin-bottom:8px}
+.ct2 .col a{text-decoration:none}.ct2 .col a:hover{color:var(--fg)}
+.ct2 .team{grid-column:span 6}
+.ct2 .team ul{list-style:none;columns:2;column-gap:var(--g)}
+.foot{margin-top:calc(var(--u)*2);padding:20px var(--m) calc(20px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:var(--t-s);color:var(--dim)}
+.foot a{text-decoration:none}.foot a:hover{color:var(--fg)}
+@media (max-width:820px){.ct2 .col,.ct2 .team{grid-column:1/13}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pv img,.ov{transition:none}.lit img{filter:none!important}}
+</style>
+</head>
+<body>
+<div class="boot" id="intro" aria-hidden="true"><div class="lw">notholt<i>*</i> <span>lighting design</span></div><span class="sk">klicken zum Überspringen</span></div>
+
+<header class="top" id="top">
+  <a href="#start" class="wm">notholt<i>*</i> <span>lighting design</span></a>
+  <nav><a href="#award">[d]arc award</a><a href="#projekte">projekte</a><a href="#werkstatt">lichtwerkstatt</a><a href="#ueber">über uns</a><a class="kt" href="#kontakt">kontakt</a></nav>
+  <button class="mb" id="mb" aria-expanded="false" aria-controls="top">menü</button>
+</header>
+
+<main>
+<section class="hero" id="start">
+  <div class="cols" id="cols" aria-label="Referenzen"></div>
+  <div class="veil"></div>
+  <div class="cap">
+    <h1>Das Lichtplanungsbüro von Thomas Notholt in Hamburg, entwickelt innovative und individuelle Lichtkonzepte.</h1>
+    <span class="hint"><b id="cnt"></b>Mit der Maus beleuchten</span>
+  </div>
+</section>
+<div class="tag" id="tag"></div>
+
+<div class="s4"></div>
+
+<section class="row aw" id="award">
+  <p class="badge">[d]arc awards 2021<br>Winner Best Art Bespoke</p>
+  <h2>Kunden im „Lichtschwarm“</h2>
+  <div class="txt">
+    <p>Wir sind von einer internationalen Fachjury zum Sieger in der Kategorie Art Bespoke gekürt worden! Die Preisträger wurden am 31. März 2022 im Rahmen der [d]arc night @ Fabric in London bekannt gegeben. Unser Teammitglied Almut Bagnoli hat den Preis vor Ort im Namen des Büros entgegengenommen.</p>
+    <p>Das eingereichte Projekt wurde in der Hamburger Privatbank Donner &amp; Reuschel in Zusammenarbeit mit Axthelm Rolvien Architekten für die Innen- und Außenbeleuchtung umgesetzt.</p>
+    <strong>Das Konzept: Innen- und Außenbeleuchtung spiegeln hanseatische Eleganz und Zurückhaltung wider</strong>
+    <p>Die schwebende Lichtskulptur bildet eine Sichelform aus Fiberglas-Elementen mit konischen Messing- und Weißglas-Endstücken, die den Loungebereich der Eingangshalle der Privatbank umschließt. Spaziert man den Weg außen am Gebäude entlang, eröffnet sich durch das Fenster ein herrlicher Blick auf die Lichtinstallation. Von innen erfasst der Blick der Besucher die ganze Weite der Lichtskulptur. Vom Loungebereich aus schauen die Bankkunden durch den faszinierenden Lichtschwarm direkt nach oben.</p>
+  </div>
+</section>
+<div class="s2"></div>
+<section class="row gal" id="awgal">
+  <figure class="lit"><img src="img/Foto_29.07.20__23_30_46.jpg" width="2000" height="1000" alt="Privatbank Donner & Reuschel" loading="lazy"></figure>
+  <figure class="lit"><img src="img/Foto_29.07.20__23_10_35.jpg" width="2000" height="1000" alt="Privatbank Donner & Reuschel" loading="lazy"></figure>
+  <figure class="lit"><img src="img/Foto_29.07.20__23_31_15.jpg" width="2000" height="1000" alt="Privatbank Donner & Reuschel" loading="lazy"></figure>
+  <figure class="lit"><img src="img/BAL_0550.jpg" width="2000" height="1000" alt="Privatbank Donner & Reuschel" loading="lazy"><figcaption>© Fotos: notholt lighting design (1-5); Marcus Bredt (6)</figcaption></figure>
+</section>
+
+<div class="s4"></div>
+
+<section class="row pj" id="projekte">
+  <div class="h">
+    <h2>Projekte</h2>
+    <div class="flt" id="flt" role="group" aria-label="Kategorie"></div>
+  </div>
+  <ol class="idx" id="idx"></ol>
+  <div class="s1" style="grid-column:1/13"></div>
+  <p class="intro">Jedes Projekt ist eine neue Herausforderung! Professionelle Lichtplanung bedeutet alle Projekte mit ihren individuellen Aufgabenstellungen zu betrachten, zu analysieren, zu planen und umzusetzen. Unsere vielseitigen Erfahrungen in den unterschiedlichsten Bereichen machen dies möglich. Wir entwickeln individuelle Lösungen für Ihre Projekte, unabhängig von Größe, Funktion oder Budget.</p>
+</section>
+<div class="pv" id="pv"><img alt="" id="pvImg"></div>
+
+<div class="s4"></div>
+
+<section class="row ws" id="werkstatt">
+  <div class="tx">
+    <h2>Lichtwerkstatt</h2>
+    <p>Hierfür nutzen wir täglich unsere eigene Lichtwerkstatt, um die jeweils individuellen Szenarien nachzustellen und Ihnen das bestmögliche Ergebnis bieten zu können.</p>
+    <div class="ctl">
+      <div><label for="dim">Dimmen <output id="dimO">100 %</output></label><input type="range" id="dim" min="5" max="100" value="100"></div>
+      <div><label for="cct">Lichtfarbe <output id="cctO">3000 K</output></label><input type="range" id="cct" min="2200" max="5000" step="100" value="3000"></div>
+    </div>
+  </div>
+  <figure class="sc" id="sc"><img src="img/csm_TORTUE_HAMBURG__JIN_GUI_Long_table_d71c1d5bc8.jpg" width="1200" height="600" alt="TORTUE Hotel, Hamburg" loading="lazy"><div class="tint"></div></figure>
+</section>
+
+<div class="s4"></div>
+
+<section class="row ab" id="ueber">
+  <p class="lead">Unser Team, bestehend aus jungen, kreativen und erfahrenen Lichtplanern, erarbeitet in enger Zusammenarbeit mit Bauherren und Architekten Lichtkonzepte, deren Ziel es ist, ihrer jeweiligen Individualität gerecht zu werden. In den entsprechenden Kompetenzbereichen setzen wir uns mit den architektonischen Vorgaben und der jeweiligen Nutzung intensiv auseinander. Wir planen unabhängig von Herstellern und schaffen es somit die modernsten Lichttechnologien zu berücksichtigen.</p>
+  <div class="th">
+    <details><summary><span>Gesundheit</span><i></i></summary><div class="c"><figure><img src="img/csm_IZP-1_07_ccaff711ef.jpg" alt="" loading="lazy"></figure><div>
+      <p>Licht hat einen direkten und indirekten Einfluss auf unsere Gesundheit, unser Wohlempfinden und unsere Lebensqualität. Im direkten Wege über das Auge, steuert Licht zum Beispiel unseren Schlaf-Wach-Rhythmus, dem gesundheitlich eine zentrale Rolle zukommt. Im indirekten Wege haben Lichtfarbe, Lichtqualität, Blendfreiheit, Ambiente und Atmosphäre Einfluss auf unser Wohlempfinden.</p>
+      <p>In all unseren Projekten beziehen wir gesundheitliche Aspekte mit ein und schaffen Lösungen, die das Wohlempfinden und die Lebensqualität fördern und alle Sinne ansprechen.</p></div></div></details>
+    <details><summary><span>Lichtfarben</span><i></i></summary><div class="c"><figure><img src="img/csm_Aqualounge-1_60bb56c743.jpg" alt="" loading="lazy"></figure><div>
+      <p>Der sensible Umgang mit Farbe und Licht ist eine große Herausforderung für jeden Lichtplaner. Leider wird das »Einfärben« eines Raumes oder eines Gebäudes oftmals mit professioneller Lichtplanung gleichgesetzt. Gezielter Umgang mit farbigem Licht, bedeutet jedoch für uns die Einbeziehung aller technischen und biologischen Faktoren.</p>
+      <p>Die Wirkung von farbigem Licht auf unseren Organismus ist eine wesentliche und nicht zu vernachlässigende Erkenntnis. Neben dem vollen Farbspektrum, welches uns das natürliche Tageslicht bietet, können wir mit einer intelligenten Lichtregelung und einfacher Bedienbarkeit farbige Lichtszenen schaffen, die aus unserer Sicht jedoch nur als Ergänzung zur eigentlichen Beleuchtung oder als vorübergehende Installation ihre Wirkung finden.</p></div></div></details>
+    <details><summary><span>Energie</span><i></i></summary><div class="c"><figure><img src="img/csm_Energie_7371f1e40d.jpg" alt="" loading="lazy"></figure><div>
+      <p>In der Architektur gewinnen Nachhaltigkeits-Standards wie BREEAM, LEED und DGNB immer mehr an Bedeutung und Aufmerksamkeit und werden immer häufiger nachgefragt. Professionelle Lichtplanung beinhaltet neben energetischen Fragen auch eine Reihe weiterer wichtiger Faktoren, die berücksichtigt werden müssen. Als Planer sind wir dafür verantwortlich, die Bedürfnisse aller Projektbeteiligten zu verbinden und bestmöglich umzusetzen.</p>
+      <p>Die Thematik des Energieeffizienten Bauens ist im Bereich der Lichtplanung ein komplexes Werk aus unterschiedlichsten Bedingungen, Anforderungen und Möglichkeiten. Aktuelle Erkenntnisse und Techniken werden in die Planung einbezogen ohne dabei die atmosphärische Gestaltung und die individuellen Bedürfnisse des Nutzers außer Acht zu lassen.</p></div></div></details>
+    <details><summary><span>LEDs</span><i></i></summary><div class="c"><figure><img src="img/csm_LED_20b9bd5a6e.jpg" alt="" loading="lazy"></figure><div>
+      <p>LEDs (Light Emitting Diode) entwickeln sich mit rasanter Geschwindigkeit. Immer neue Leistungsklassen, höhere Effizienz, bessere Farbwiedergabe, andere Lichtspektren. Neue Unternehmen entstehen und traditionelle Hersteller steigen groß in den Markt ein. Mit diesem Neuland und der Fülle der Produkte ergeben sich erhebliche Qualitätsunterschiede. Durch kontinuierliche Schulung und Weiterbildung unserer technischen Fachkenntnisse und der Bemusterung jeder spezifizierten Leuchte sind wir Ihr verlässlicher Partner für eine kompetente Beratung.</p>
+      <p>Die wichtigsten Vorteile der LED Technik sind: Hohe Energieeffizienz, lange Lebensdauer, geringe Größe, gute Dimmbarkeit, Robustheit, geringe Wärmeerzeugung, keine Einschaltverzögerung, UV- und IR-Licht frei.</p></div></div></details>
+  </div>
+</section>
+
+<div class="s4"></div>
+
+<section class="row ct2" id="kontakt">
+  <a class="big" href="mailto:info@notholt.de">info@notholt.de</a>
+  <div class="col"><h4>notholt lighting design</h4>Dehnhaide 71<br>22081 Hamburg<br><a href="https://www.google.com/maps?daddr=Dehnhaide+71+22081+Hamburg" target="_blank" rel="noopener">Anfahrt</a></div>
+  <div class="col"><h4>Kontakt</h4><a href="tel:+494069644500">T. 0049 (0)40. 69644500</a><br>F. 0049 (0)40. 69644495<br>Inhaber: Thomas Notholt</div>
+  <div class="col team"><h4>Team</h4><ul>
+    <li><a href="mailto:tn@notholt.de">Thomas Notholt</a></li><li><a href="mailto:uw@notholt.de">Ulrike Wiegand</a></li><li><a href="mailto:ab@notholt.de">Almut Bagnoli</a></li><li><a href="mailto:lw@notholt.de">Larissa Wilhelm</a></li><li><a href="mailto:mh@notholt.de">Mara Hein</a></li><li><a href="mailto:is@notholt.de">Inken Schwedt</a></li><li><a href="mailto:tt@notholt.de">Tina Trömmel</a></li></ul></div>
+</section>
+<div class="foot"><span>notholt lighting design</span><span><a href="https://www.notholt.de/impressum/">impressum</a> &nbsp; <a href="https://www.notholt.de/datenschutz/">datenschutz</a> &nbsp; <a href="https://www.notholt.de/1/startseite/">en</a></span></div>
+</main>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovT">
+  <div class="bar"><button id="ovX">schließen</button><div class="nx"><button id="ovP">zurück</button><span id="ovN"></span><button id="ovF">weiter</button></div></div>
+  <div class="hd"><h3 id="ovT"></h3><div class="meta"><div class="a" id="ovA"></div><div class="b" id="ovB"></div></div></div>
+  <div class="imgs" id="ovI"></div>
+  <div class="cr" id="ovC"></div>
+</div>
+
+<script>
+/* =========================================================
+   PROJEKTE: Texte und Bilder 1:1 von notholt.de
+   ========================================================= */
+const B='img/';
+const P=[
+ {n:'Privatbank Donner & Reuschel',o:'Hamburg',c:'Büro / Verwaltung',l:'Lichtplanung Tresorlounge/Bar, Damenlounge, Herrenlounge, Besprechungsräume, Vorstandsräume, Veranstaltungsräume, Eventlounge',cr:'© Marcus Bredt (1-7); notholt lighting design (8-9)',w:1200,i:['1-2_BAL_1352.jpg','1-2_BAL_0787.jpg','1-2_BAL_0987.jpg','1-2_BAL_0912.jpg','1-2_BAL_1410.jpg','1-2_BAL_0982.jpg','Foto_29.07.20__22_59_07.jpg','Foto_29.07.20__23_30_46.jpg']},
+ {n:'TORTUE Hotel',o:'Hamburg',c:'Hotel',l:'',w:1200,i:['csm_TORTUE_HAMBURG__JIN_GUI_Long_table_d71c1d5bc8.jpg','csm_TORTUE_HAMBURG_TORTUE_Suite__7__9a9c851e29.jpg','csm_TORTUE_HAMBURG_brasserie__2__3d7ecda236.jpg','csm_TORTUE_HAMBURG__Lobby__1__08b338c27b.jpg','csm_TORTUE_HAMBURG_bar_bleu__3__33ba951b8a.jpg','csm_TORTUE_HAMBURG__JIN_GUI_Main_Restaurant__2__358c59f26c.jpg','csm_TORTUE_HAMBURG_JIN_GUI_Mirror_chamber__1_hp_475908490a.jpg']},
+ {n:'Nikkei Nine',o:'Hamburg',c:'Gastronomie',l:'Lichtplanung für Innenbeleuchtung, Eingangsbereich, Restaurant, Bar, Lounge',w:1200,i:['csm_notholt_lighting_design_NIKKEI_NINE_2___Guido_Leifhelm_3f00c8ceaa.jpg','csm_notholt_lighting_design_NIKKEI_NINE_6___Guido_Leifhelm_409027deb1.jpg','csm_notholt_lighting_design_NIKKEI_NINE_8___Guido_Leifhelm_d8a57d6464.jpg','csm_notholt_lighting_design_NIKKEI_NINE_7___Guido_Leifhelm_ceb6099236.jpg','csm_notholt_lighting_design_NIKKEI_NINE_1___Guido_Leifhelm_0f5d791a88.jpg','csm_notholt_lighting_design_NIKKEI_NINE_3___Guido_Leifhelm_a6da477866.jpg','csm_notholt_lighting_design_NIKKEI_NINE_4___Guido_Leifhelm_bd49dbfd7b.jpg','csm_notholt_lighting_design_NIKKEI_NINE_5___Guido_Leifhelm_3574116ed7.jpg','csm_notholt_lighting_design_NIKKEI_NINE_9___Guido_Leifhelm_ccf7fc57c0.jpg','csm_notholt_lighting_design_NIKKEI_NINE_10___Guido_Leifhelm_3d6e44094e.jpg']},
+ {n:'Hotel Öschberghof',o:'Donaueschingen',c:'Hotel',l:'Lichtplanung für die Erweiterung und den Umbau des Hotels mit großem Wellness- und Gastronomiebereich, Konferenz- und Veranstaltungsbereich, sowie neuem Konzept der Hotelzimmer',w:1200,i:['csm_x_61A5251_e4cafd8bf8.jpg','csm_x_61A5324_0407b2ea13.jpg','csm_x_61A5091_32f1928829.jpg','csm_x_61A5400_554dc6121d.jpg','csm_x_61A5066_cce5d204f2.jpg','csm_x_61A5501-2b_28550b9a1b.jpg']},
+ {n:'Hotel Steigenberger Treudelberg',o:'Hamburg',c:'Hotel',l:'Lichtplanung für Lobby, Konferenzräume, Wellnessbereich, Gastronomie, Aussenbeleuchtung',w:1181,i:['1-2_TREUDELBERG_GEMUETLICH_57.jpg','TREUDELBERG_GEMUETLICH_29b.jpg','1-2_TREUDELBERG_GEMUETLICH_21.jpg','1-2_TREUDELBERG_GEMUETLICH_47.jpg','1-2_TREUDELBERG_GEMUETLICH_05.jpg']},
+ {n:'MS Europa 2',o:'',c:'Schifffahrt',l:'Lichtplanung für Restaurants, Bars, Fitness, Spa, Pool, Aussenbereiche, Lobby, Treppenhäuser, Theater, Shops',w:1200,i:['csm_MS-Europa-2--1_08_f1c44b9a83.jpg','csm_MS-Europa-2--2_08_358ac708b2.jpg','csm_MS-Europa-2-3_29_283f938f41.jpg','csm_MS-Europa-2--6_10_92fa444904.jpg','csm_MS-Europa-2--7_08_04c3187d76.jpg','csm_MS-Europa-2-8_08_7ed5339a25.jpg','csm_MS-Europa-2--4_08_712d78947c.jpg','csm_MS-Europa-2---5_10_b6ce461eca.jpg','csm_MS-Europa-2-9_08_93e7b98b2d.jpg','csm_MS-Europa-2--10_22_e52a9d36b7.jpg','csm_MS-Europa-2--11_08_7d7a282188.jpg']},
+ {n:'SIDE Hotel',o:'Hamburg',c:'Hotel',l:'Erneuerung des Bestandskonzepts für Lobby, Konferenzräume und Gastronomie',w:1200,i:['Hotel-Gallery-Bar-02-1140x757.jpg','Hotel-Gallery-Lobby-Lounge-01-1140x757.jpg','hotel-kontakt-col.jpg','Hotel-Gallery-Lobby-Lounge-02.jpg','Hotel-Gallery-Bar-01-1140x757.jpg','Hotel-Gallery-Tagung_XL-1140x757.jpg']},
+ {n:'Hanse Merkur',o:'Hamburg',c:'Fassaden',l:'Lichtplanung für Empfangshalle, Fassade, Außenbereiche',w:2048,i:['stadtvilla-haus-wedells-3hp.jpg','csm_IMG_6050hp_da5bf51631.jpg','csm_IMG_0140hp_52cee28488.jpg','csm_IMG_7750hp_170baa1a69.jpg']},
+ {n:'Joachim Herz Stiftung',o:'Hamburg',c:'Büro / Verwaltung',l:'Lichtplanung für Außenanlagen, Parkplätze, Fassadenbeleuchtung, Konferenzräume, Cafeteria, Auditorium, Foyer, Flure, Treppenhäuser',cr:'© Kitzmann Architekten mit Heiner Leiska, notholt lighting design',w:1200,i:['csm_Joachim_Herz_Stiftung_03_75b27ecc46.jpg','csm_Joachim_Herz_Stiftung_1_02_89b0ef1568.jpg','csm_Joachim_Herz_Stiftung_2_37419a9ae5.jpg','csm_Joachim_Herz_Stiftung_3_04_4f525b97b1.jpg','csm_Joachim_Herz_Stiftung_4_6951b8d7d4.jpg','csm_notholt_lighting_design_Joachim_Herz_Stiftung_6_740886ee83.jpg','csm_notholt_lighting_design_Joachim_Herz_Stiftung_7_de9eae0e25.jpg','csm_notholt_lighting_design_Joachim_Herz_Stiftung_8_9da4b5e9c6.jpg']},
+ {n:'Internationales Maritimes Museum',o:'Hamburg',c:'Museen',l:'',w:1200,i:['csm_Internationales-Maritimes-Museum-1_04_d6a8efea49.jpg']},
+ {n:'Mundsburg Office Tower',o:'Hamburg',c:'Büro / Verwaltung',l:'Lichtplanung für Foyer, öffentliche Bereiche',w:1200,i:['csm_Mundsburg_Office_Tower_1_04_b1aabe7d07.jpg']},
+ {n:'Maggi Kochstudio',o:'Frankfurt',c:'Gastronomie',l:'',w:1200,i:['csm__DSC0560.1x2_364047dca2.jpg']}
+];
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover)').matches;
+const pad=n=>String(n).padStart(2,'0');
+
+
+/* ---------- Ladebild ---------- */
+(()=>{const it=document.getElementById('intro'),lw=it.querySelector('.lw');document.body.style.overflow='hidden';
+  const done=()=>{if(it.classList.contains('out'))return;it.classList.add('out');document.body.style.overflow=''};
+  it.onclick=done;if(rm||sessionStorage.getItem('nl-intro')){lw.style.setProperty('--base',1);lw.style.setProperty('--st',1);setTimeout(done,rm?300:600);return}
+  try{sessionStorage.setItem('nl-intro','1')}catch(e){}
+  const T0=performance.now(),E=x=>-(Math.cos(Math.PI*x)-1)/2,c=(t,a,d)=>Math.min(1,Math.max(0,(t-a)/d));
+  const step=n=>{const t=(n-T0)/1000;
+    lw.style.setProperty('--sx',(-30+160*E(c(t,.6,3.2)))+'%');                    /* Lichtkegel gleitet langsam über das Logo */
+    lw.style.setProperty('--st',(.06+.94*E(c(t,2.4,1.6))).toFixed(3));           /* Stern dimmt warm hoch */
+    lw.style.setProperty('--base',(.05+.95*E(c(t,3.4,1.6))).toFixed(3));         /* Schriftzug wird vollständig hell */
+    if(t<5.6)requestAnimationFrame(step);else done()};requestAnimationFrame(step)})();
+
+/* ---------- Menü mobil ---------- */
+(()=>{const tp=document.getElementById('top'),mb=document.getElementById('mb');
+  mb.onclick=()=>{const o=tp.classList.toggle('open');mb.textContent=o?'schließen':'menü';mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+  tp.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{if(tp.classList.contains('open'))mb.click()}))})();
+
+/* ---------- Hero: bewegtes Raster aller Referenzen ---------- */
+const cols=document.getElementById('cols'),tag=document.getElementById('tag'),hero=document.getElementById('start');
+const ALL=[];P.forEach((p,k)=>p.i.forEach(s=>ALL.push([s,k])));
+for(let i=ALL.length-1;i>0;i--){const j=(i*7919)%(i+1);[ALL[i],ALL[j]]=[ALL[j],ALL[i]]}
+document.getElementById('cnt').textContent=P.length+' Projekte, '+ALL.length+' Bilder';
+const NC=innerWidth<760?2:innerWidth<1200?4:5,colEls=[],tiles=[];
+for(let c=0;c<NC;c++){const col=document.createElement('div');col.className='col';const set=ALL.filter((_,i)=>i%NC===c);
+  [...set,...set].forEach(([s,k])=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',P[k].n);const im=new Image();im.src=B+s;im.alt='';im.decoding='async';b.append(im);
+    b.onclick=()=>openP(k);b.onmouseenter=()=>{tag.textContent=P[k].n+(P[k].o?', '+P[k].o:'');tag.classList.add('on')};b.onmouseleave=()=>tag.classList.remove('on');col.append(b);tiles.push({im,el:b,lit:0,pulse:0})});
+  cols.append(col);colEls.push({el:col,off:Math.random()*400,v:(c%2?-1:1)*(.18+.06*(c%3))})}
+let mx=-9999,my=-9999,ml=0;
+hero.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;ml=1;tag.style.transform='translate('+(e.clientX+16)+'px,'+(e.clientY+16)+'px)'});
+hero.addEventListener('pointerleave',()=>{ml=0;tag.classList.remove('on')});
+/* Lichtszene: einzelne Bilder gehen nacheinander an und wieder aus */
+setInterval(()=>{if(rm)return;const vis=tiles.filter(t=>{const r=t.el.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight});const t=vis[Math.floor(Math.random()*vis.length)];if(t)t.pulse=1},700);
+/* ---------- Projekte ---------- */
+const idx=document.getElementById('idx'),flt=document.getElementById('flt'),pv=document.getElementById('pv'),pvImg=document.getElementById('pvImg');
+P.forEach((p,k)=>{const li=document.createElement('li');li.dataset.c=p.c;
+  li.innerHTML='<button type="button"><span class="no">'+pad(k+1)+'</span><span class="nm">'+p.n+'</span><span class="ct">'+p.c+'</span><span class="or">'+(p.o||'')+'</span><img class="th" loading="lazy" alt="" src="'+B+p.i[0]+'"></button>';
+  li.onmouseenter=()=>{idx.classList.add('hov');idx.querySelectorAll('li').forEach(x=>x.classList.toggle('on',x===li));pv.classList.remove('on');pvImg.onload=()=>requestAnimationFrame(()=>pv.classList.add('on'));pvImg.src=B+p.i[0];if(pvImg.complete)requestAnimationFrame(()=>pv.classList.add('on'))};
+  li.querySelector('button').onclick=()=>openP(k);idx.append(li)});
+idx.onmouseleave=()=>{idx.classList.remove('hov');pv.classList.remove('on')};
+const cats=['Alle',...new Set(P.map(p=>p.c))];
+cats.forEach((c,i)=>{const b=document.createElement('button');b.textContent=c;b.setAttribute('aria-pressed',i===0);b.onclick=()=>{flt.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));idx.querySelectorAll('li').forEach(li=>li.classList.toggle('off',c!=='Alle'&&li.dataset.c!==c))};flt.append(b)});
+
+/* ---------- Projekt-Ansicht ---------- */
+const ov=document.getElementById('ov');let curP=0,lastFocus=null;
+function openP(k){curP=(k+P.length)%P.length;const p=P[curP];
+  document.getElementById('ovT').textContent=p.n;document.getElementById('ovA').innerHTML=p.c+(p.o?'<br>'+p.o:'');document.getElementById('ovB').textContent=p.l||'';
+  document.getElementById('ovN').textContent=pad(curP+1)+' / '+pad(P.length);document.getElementById('ovC').textContent=p.cr||'';
+  const box=document.getElementById('ovI');box.innerHTML='';box.style.setProperty('--w',p.w+'px');
+  p.i.forEach((s,j)=>{const im=new Image();im.src=B+s;im.alt=p.n;im.loading=j<2?'eager':'lazy';box.append(im)});
+  if(!ov.classList.contains('on')){lastFocus=document.activeElement;ov.classList.add('on');document.body.style.overflow='hidden'}ov.scrollTop=0;document.getElementById('ovX').focus()}
+function closeP(){ov.classList.remove('on');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+document.getElementById('ovX').onclick=closeP;document.getElementById('ovP').onclick=()=>openP(curP-1);document.getElementById('ovF').onclick=()=>openP(curP+1);
+addEventListener('keydown',e=>{if(!ov.classList.contains('on'))return;if(e.key==='Escape')closeP();if(e.key==='ArrowRight')openP(curP+1);if(e.key==='ArrowLeft')openP(curP-1)});
+
+/* ---------- Lichtwerkstatt ---------- */
+const sc=document.getElementById('sc'),dim=document.getElementById('dim'),cct=document.getElementById('cct'),tint=sc.querySelector('.tint');
+function kelvin(k){const t=k/100;let r,g,b;if(t<=66){r=255;g=99.47*Math.log(t)-161.12;b=t<=19?0:138.52*Math.log(t-10)-305.04}else{r=329.7*Math.pow(t-60,-.1332);g=288.12*Math.pow(t-60,-.0755);b=255}
+  const c=x=>Math.max(0,Math.min(255,Math.round(x)));return 'rgb('+c(r)+','+c(g)+','+c(b)+')'}
+function light(){const d=dim.value/100,k=+cct.value;
+  sc.style.setProperty('--dimv',(Math.pow(d,1.6)*1.0+.02).toFixed(3));sc.style.setProperty('--satv',(.55+.45*d).toFixed(3));
+  sc.style.setProperty('--tint',kelvin(k));sc.style.setProperty('--tinto',(Math.min(1,Math.abs(k-3000)/2000)*.85+.15).toFixed(2));
+  document.getElementById('dimO').textContent=dim.value+' %';document.getElementById('cctO').textContent=k+' K'}
+dim.oninput=cct.oninput=light;light();
+
+/* ---------- Kopf, Licht beim Scrollen, Kegel ---------- */
+const top_=document.getElementById('top'),lits=[...document.querySelectorAll('.lit img')],links=[...document.querySelectorAll('.top nav a')];
+const secs=['award','projekte','werkstatt','ueber','kontakt'].map(id=>document.getElementById(id));
+function frame(now){
+  const h=innerHeight,y=scrollY;top_.classList.toggle('solid',y>40);
+  /* Raster bewegen und beleuchten */
+  if(y<h*1.2){colEls.forEach(c=>{if(!rm)c.off+=c.v;const half=c.el.scrollHeight/2;if(half){c.off=((c.off%half)+half)%half;c.el.style.transform='translate3d(0,'+(-c.off)+'px,0)'}});
+    const R=Math.max(innerWidth,h)*.2;tiles.forEach(t=>{const r=t.el.getBoundingClientRect();if(r.bottom<0||r.top>h)return;
+      const cx=r.left+r.width/2,cy=r.top+r.height/2,d=Math.hypot(cx-mx,cy-my),near=ml?Math.max(0,1-d/R):0;
+      t.pulse*=.985;const target=Math.max(near,t.pulse);t.lit+=(target-t.lit)*.12;
+      t.im.style.setProperty('--b',(.4+.6*t.lit).toFixed(3));t.im.style.setProperty('--s',(.55+.45*t.lit).toFixed(3))})}
+  /* Bilder gehen an, wenn man hinkommt */
+  if(!rm)lits.forEach(im=>{const b=im.getBoundingClientRect();if(b.bottom<0||b.top>h)return;const p=Math.min(1,Math.max(0,(h-b.top)/(h*.65)));im.style.setProperty('--b',(.08+.92*Math.pow(p,1.4)).toFixed(3))});
+  /* aktive Navigation */
+  let on=-1;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<h*.4)on=i});links.forEach((a,i)=>a.classList.toggle('on',i===on));
+  /* Vorschau folgt leicht der Maus */
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
